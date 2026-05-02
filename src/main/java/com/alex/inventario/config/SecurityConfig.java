@@ -1,3 +1,14 @@
+package com.alex.inventario.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.web.SecurityFilterChain;
+
+import java.util.List;
+
 @Configuration
 public class SecurityConfig {
 
@@ -31,7 +42,6 @@ public class SecurityConfig {
 
                     return config;
                 }))
-
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/usuarios/**").permitAll()
                         .anyRequest().permitAll()
